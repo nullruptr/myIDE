@@ -1,0 +1,38 @@
+{
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cc",
+    "cpp",
+    "c++",
+    "objc",
+    "objcpp"
+  ],
+  "dockerfile": {
+    "command": "docker-langserver",
+    "filetypes": ["dockerfile"],
+    "args": ["--stdio"]
+  },
+  "dockercompose": {
+    "command": "docker-compose-langserver",
+    "args": ["--stdio"],
+    "filetypes": ["dockercompose"],
+    "rootPatterns": [".git", ".env", "docker-compose.yml", "compose.yml"]
+  },
+  "fortran": {
+    "command": "fortls",
+    "filetypes": ["fortran"],
+    "rootPatterns": [".fortls", ".git/"]
+  },
+  "latex": {
+    "command": "/PATH/TO/texlab",
+    "filetypes": ["tex", "bib", "plaintex", "context"]
+  },
+  "inlayHint.enable": false
+}

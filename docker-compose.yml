@@ -1,0 +1,15 @@
+services:
+  nvim-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nvim
+    environment:
+      TZ: Asia/Tokyo
+      DISPLAY: host.docker.internal:0.0 # https://qiita.com/miraijin/items/e29b7a60db6d181ffe35
+    volumes:
+      - ./dotfiles/config/nvim:/root/.config/nvim # Neovim 設定をマウント
+      - "C:/Users/${USERNAME}:/root/workspace" # USERNAME 以降マウント
+      - "/mnt/g:/root/workspace/gdrive" # Link with Google Drive
+    working_dir: /root/workspace # docker exec で入った時のカレントがここになる
+    tty: true
