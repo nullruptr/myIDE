@@ -56,7 +56,8 @@ ENV PATH="/root/.pyenv/bin:$PATH"
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 # 
-RUN poetry config virtualenvs.in-project true
+RUN poetry config virtualenvs.in-project false
+RUN poetry config virtualenvs.path "./.venv-linux"
 
 # Setup for wxPython
 RUN apt-get install -y build-essential libgtk-3-dev
