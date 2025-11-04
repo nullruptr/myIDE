@@ -10,6 +10,7 @@ services:
     volumes:
       - ./dotfiles/config/nvim:/root/.config/nvim # Neovim 設定をマウント
       - "C:/Users/${USERNAME}:/root/workspace" # USERNAME 以降マウント
-      - "/mnt/g:/root/workspace/gdrive" # Link with Google Drive
+      - "G:/:/root/drive/g"
+      - "I:/:/root/drive/i"
     working_dir: /root/workspace # docker exec で入った時のカレントがここになる
     tty: true
