@@ -57,7 +57,8 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 # 
 RUN poetry config virtualenvs.in-project false
-RUN poetry config virtualenvs.path "./.venv-linux"
+# RUN poetry config virtualenvs.path "./.venv-linux" # 外付けドライブにて，poetry init できないため
+RUN poetry config virtualenvs.path /root/.venv
 
 # Setup for wxPython
 RUN apt-get install -y build-essential libgtk-3-dev
