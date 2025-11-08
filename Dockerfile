@@ -43,6 +43,17 @@ RUN apt update &&\
     clangd \
     clang-format \
     clang-tidy \
+    # wxWidgets Cross-platform C++ GUI toolkit
+    # Run "apt-cache search libwxgt*" to get the following information.
+    # 開発するときは，"wx-config --cxxflags" を実行し，出力内容を"compile_flags.txt"に保存する．
+    # 保存先は，プロジェクトルートディレクトリ
+    libwxgtk-gl3.2-1t64 \
+    libwxgtk-media3.2-1t64 \
+    libwxgtk-media3.2-dev \
+    libwxgtk-webview3.2-1t64 \
+    libwxgtk-webview3.2-dev \
+    libwxgtk3.2-1t64 \
+    libwxgtk3.2-dev \
     # Japanese fonts for matplotlib
     fonts-ipafont-gothic && \
     apt-get clean
