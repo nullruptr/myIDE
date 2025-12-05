@@ -6,14 +6,7 @@
       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "c",
-    "cc",
-    "cpp",
-    "c++",
-    "objc",
-    "objcpp"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "dockerfile": {
     "command": "docker-langserver",
     "filetypes": ["dockerfile"],
