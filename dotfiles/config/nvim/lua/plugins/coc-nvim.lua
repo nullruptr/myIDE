@@ -15,7 +15,8 @@ return {
         "coc-json",
         "coc-tsserver", -- Javascript / Typescript
         "coc-texlab",
-        "coc-sumneko-lua"
+        "coc-sumneko-lua",
+        "coc-markdownlint"
     }
 
     -- Docker Compose LSP Settings
