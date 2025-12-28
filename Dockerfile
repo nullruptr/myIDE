@@ -79,7 +79,8 @@ RUN npm install -g dockerfile-language-server-nodejs && \
     # coc-nvim Docker Compose
     npm install -g @microsoft/compose-language-service && \
     # resolve the nvim-treesitter's error
-    npm install -g tree-sitter-cli
+    # 0.26 系統は，nvim-treesitter の latex において --no-bindings が使えないため，エラーとなる．従って，--no-bindings が利用できる 0.25.10 を選択し，エラーを防止する．
+    npm install -g tree-sitter-cli@0.25.10
 
 # Install RUST
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y 
