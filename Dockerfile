@@ -146,6 +146,6 @@ RUN apt install mingw-w64 -y &&\
     cd /opt/wxWidgets/build-mingw &&\
     ../configure --host=x86_64-w64-mingw32 --with-msw --disable-shared &&\
     cd /opt/wxWidgets/build-mingw &&\
-    make -j$(nproc) && \
+    make -j$(nproc)
     #make install は、Linux 版 wxWidgets と干渉する可能性があるため、実行していない
 
