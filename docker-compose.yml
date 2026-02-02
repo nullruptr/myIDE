@@ -12,6 +12,5 @@ services:
       - "C:/Users/${USERNAME}:/root/workspace" # USERNAME 以降マウント
       - "C:/msys64/home:/root/home"
       - "I:/:/root/mnt/i"
-      - OLLAMA_API_URL=http://host.docker.internal:11434 # Ollama 用の環境変数
     working_dir: /root/workspace # docker exec で入った時のカレントがここになる
     tty: true
