@@ -148,4 +148,3 @@ RUN apt install mingw-w64 -y &&\
     cd /opt/wxWidgets/build-mingw &&\
     make -j$(nproc)
     #make install は、Linux 版 wxWidgets と干渉する可能性があるため、実行していない
-
