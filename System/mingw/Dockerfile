@@ -20,6 +20,8 @@ RUN apt update &&\
     curl \
     wget \
     tar \
+    gettext \
+    tree \
     make \
     cmake \
     git \

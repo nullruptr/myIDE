@@ -25,6 +25,7 @@ RUN apt update &&\
     tar \
     locales \
     tree \
+    gettext \
     # FORTRAN
     gfortran \
     # For Python
