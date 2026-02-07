@@ -39,6 +39,8 @@ RUN apt update &&\
     # python3-sympy \
     # for C++
     gcc \
+    gcc-mingw-w64 \
+    g++-mingw-w64 \
     cmake \
     clang \
     clangd \
