@@ -64,16 +64,6 @@ RUN apt update &&\
     fonts-ipafont-gothic && \
     apt-get clean
 
-# SQLite3 for MinGW
-RUN cd /opt && \
-    wget https://www.sqlite.org/2026/sqlite-autoconf-3510200.tar.gz && \
-    tar xvf sqlite-autoconf-3510200.tar.gz && \
-    cd sqlite-autoconf-3510200 && \
-    # --host で MinGW を指定し、インストール先をクロスコンパイラの標準パスに設定
-    ./configure --host=x86_64-w64-mingw32 --prefix=/usr/x86_64-w64-mingw32 --enable-static --disable-shared && \
-    make -j$(nproc) && \
-    make install
-
 # python3 = python
 RUN ln -s $(which python3) /usr/local/bin/python
 
@@ -150,17 +140,3 @@ RUN apt update && \
     apt install -y \
     texlive-full
 
-# Setup wxWidgets (mingw)
-RUN apt install mingw-w64 -y &&\
-    cd /opt &&\
-    git clone https://github.com/wxWidgets/wxWidgets.git &&\
-    cd wxWidgets &&\
-    mkdir build-mingw &&\
-    cd build-mingw &&\
-    cd /opt/wxWidgets &&\
-    git submodule update --init --recursive && \
-    cd /opt/wxWidgets/build-mingw &&\
-    ../configure --host=x86_64-w64-mingw32 --with-msw --disable-shared &&\
-    cd /opt/wxWidgets/build-mingw &&\
-    make -j$(nproc)
-    #make install は、Linux 版 wxWidgets と干渉する可能性があるため、実行していない
