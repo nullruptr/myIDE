@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 # Setting TZ and Japanese Locale
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -33,7 +33,7 @@ RUN apt update &&\
     python3-pip \
     pipx \
     # for clang-formatter
-    python3.12-venv \
+    python3-venv \
     npm \
     # Python lib
     # python3-sympy \
@@ -110,7 +110,7 @@ RUN apt update && \
 # Install Neovim
 RUN apt update && \
     apt-get upgrade -y &&\
-    wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz && \
+    wget https://github.com/neovim/neovim/releases/download/v0.12.2/nvim-linux-x86_64.tar.gz && \
     tar -zxvf nvim-linux-x86_64.tar.gz && \
     mv nvim-linux-x86_64/bin/nvim /usr/bin/nvim && \
     mv nvim-linux-x86_64/lib/nvim /usr/lib/nvim && \
@@ -140,3 +140,4 @@ RUN apt update && \
     apt install -y \
     texlive-full
 
+RUN apt update && apt install -y gdb-multiarch && apt-get clean
