@@ -60,6 +60,9 @@ RUN apt update &&\
     # Add SQLite3 (Linux)
     sqlite3 \
     libsqlite3-dev \
+    # SOCI
+    libsoci-dev \
+    pkg-config \
     # Japanese fonts for matplotlib
     fonts-ipafont-gothic && \
     apt-get clean
