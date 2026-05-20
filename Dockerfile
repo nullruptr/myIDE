@@ -144,3 +144,10 @@ RUN apt update && \
     texlive-full
 
 RUN apt update && apt install -y gdb-multiarch && apt-get clean
+
+# Install dotnet
+# https://learn.microsoft.com/ja-jp/dotnet/core/install/linux-ubuntu-install?tabs=dotnet10&pivots=os-linux-ubuntu-2604
+RUN apt-get install -y dotnet-sdk-10.0
+RUN apt-get install -y aspnetcore-runtime-10.0
+
+RUN nvim --headless -c "CocInstall -sync @tcx4c70/coc-csharp" -c "qa!"
