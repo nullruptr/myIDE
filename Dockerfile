@@ -143,6 +143,25 @@ RUN apt update && \
     apt install -y \
     texlive-full
 
+# wxWidgets (mingw)
+WORKDIR /opt
+RUN git clone https://github.com/wxWidgets/wxWidgets.git &&\
+    cd wxWidgets &&\
+    git checkout v3.2.10 &&\
+    git submodule update --init --recursive
+
+RUN mkdir -p /opt/wxWidgets/build-release
+WORKDIR /opt/wxWidgets/build-release
+RUN ../configure \
+    --prefix=/usr/x86_64-w64-mingw32/release \
+    --host=x86_64-w64-mingw32 \
+    --with-msw \
+    --disable-shared \
+    --enable-unicode \
+    --disable-debug \
+    --enable-optimise \
+    && make -j$(nproc) && make install
+
 WORKDIR /opt
 
 RUN git clone https://github.com/opencv/opencv.git -b 4.12.0 --depth 1
