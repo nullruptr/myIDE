@@ -143,6 +143,55 @@ RUN apt update && \
     apt install -y \
     texlive-full
 
+WORKDIR /opt
+
+RUN git clone https://github.com/opencv/opencv.git -b 4.12.0 --depth 1
+
+RUN git clone https://github.com/opencv/opencv_contrib.git -b 4.12.0 --depth 1
+
+# Build
+RUN mkdir -p /opt/opencv/build-linux
+WORKDIR /opt/opencv/build-linux
+RUN cmake .. \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr/local \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DBUILD_PERF_TESTS=OFF  \
+    -DBUILD_TESTS=OFF \
+    -DWITH_ADE=OFF \
+    -DWITH_OPENJPEG=OFF \
+    -DWITH_WEBP=OFF \
+    -DWITH_TIFF=OFF \
+    -DWITH_QUIRC=OFF \
+    -DWITH_OPENEXR=OFF \
+    -DWITH_JPEG=OFF \
+    -DWITH_LAPACK=OFF \
+    -DWITH_JASPER=OFF \
+    -DWITH_PNG=OFF \
+    -DWITH_GSTREAMER=OFF \
+    -DWITH_FFMPEG=OFF \
+    -DWITH_EIGEN=OFF \
+    -DWITH_DSHOW=OFF \
+    -DWITH_DIRECTX=OFF \
+    -DWITH_ARITH_DEC=OFF \
+    -DWITH_ARITH_ENC=OFF \
+    -DWITH_1394=OFF \
+    -DWITH_IMGCODEC_HDR=OFF \
+    -DWITH_IMGCODEC_PFM=OFF \
+    -DWITH_IMGCODEC_PXM=OFF \
+    -DWITH_IMGCODEC_SUNRASTER=OFF \
+    -DBUILD_OPENJPEG=OFF \
+    -DBUILD_JASPER=OFF \
+    -DBUILD_JAVA=OFF \
+    -DBUILD_JPEG=OFF \
+    -DBUILD_OPENEXR=OFF \
+    -DBUILD_PNG=OFF \
+    -DBUILD_TBB=OFF \
+    -DBUILD_opencv_python3=OFF \
+    -DOPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules \
+    && make -j$(nproc) \
+    && make install
+
 RUN apt update && apt install -y gdb-multiarch && apt-get clean
 
 # Install dotnet

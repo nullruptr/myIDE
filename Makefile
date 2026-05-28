@@ -4,7 +4,7 @@ up:
 # https://scrapbox.io/javememo/docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E5%86%85%E3%81%AE%E6%99%82%E5%88%BB%E3%81%8CWindows%E3%83%9B%E3%82%B9%E3%83%88%E3%81%A8%E3%81%9A%E3%82%8C%E3%82%8B
 	wsl --set-default Ubuntu
 	wsl -u root apt update
-	wsl -u root apt-get upgrade
+	wsl -u root apt-get upgrade -y
 	wsl -u root apt install -y ntpdate
 	wsl -u root ntpdate ntp.nict.jp
 	docker compose build --progress=plain
