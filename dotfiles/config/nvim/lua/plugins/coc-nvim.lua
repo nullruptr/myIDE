@@ -16,7 +16,11 @@ return {
         "coc-tsserver", -- Javascript / Typescript
         "coc-texlab",
         "coc-sumneko-lua",
-        "coc-markdownlint"
+        "coc-markdownlint",
+        "coc-rust-analyzer", -- Rust (Tauri backend)
+        "coc-eslint",
+        "coc-prettier",
+        "coc-tailwindcss"
     }
 
     -- Docker Compose LSP Settings
