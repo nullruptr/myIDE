@@ -2,11 +2,16 @@
 return {
     'akinsho/toggleterm.nvim', version = "*",
     config = function ()
+        local shell = "/bin/bash"
+        if vim.fn.has('win32') == 1 then
+            shell = "powershell.exe"
+        end
+
         require('toggleterm').setup{
             open_mapping = [[<c-\>]],
             direction = 'horizontal',
             size = 20,
-            shell = "/bin/bash",
+            shell = shell,
         }
     end
 }
